@@ -1,91 +1,87 @@
-# <img src="https://intranet.hbtn.io/assets/holberton-logo-default-27055cb2f875eb10bf3b3942e52a24581bc0667695bdc856d4f08b469b678000.png" width="30"> AirBnB Clone V.4 - Web dynamic
+0x06. AirBnB clone - Web dynamic
+Python
+Front-end
+JavaScript
+ Weight: 2
+ Project to be done in teams of 2 people (your team: Jane Njaga, Emmanuel Olusan)
+ Project will start May 30, 2024 7:00 AM, must end by Jun 3, 2024 7:00 AM
+ Checker was released at May 31, 2024 7:00 AM
+ Manual QA review must be done (request it when you are done with the project)
+ An auto review will be launched at the deadline
+Concepts
+For this project, we expect you to look at this concept:
 
-## Synopsis
-This is the 4th version of our AirBnB clone project. We will be using python3, RESTful API, MySQL, Flask, and jQuery AJAX
+AirBnB clone
+Resources
+Read or watch:
 
-<p><img src="https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step5.png" alt="step2"></p>
+Selector
+Get and set content
+Manipulate CSS classes
+Manipulate DOM elements
+Document ready
+Introduction
+GET & POST request
+HTTP access control (CORS)
+Learning Objectives
+At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-## Table of Contents
-* [Environment](#environment)
-* [Installation](#installation)
-* [File Descriptions](#file-descriptions)
-* [Usage](#usage)
-* [Examples of use](#examples-of-use)
-* [Bugs](#bugs)
-* [Authors](#authors)
-* [License](#license)
+General
+How cool it is to request your own API
+How to modify an HTML element style
+How to get and update an HTML element content
+How to modify the DOM
+How to make a GET request with JQuery Ajax
+How to make a POST request with JQuery Ajax
+How to listen/bind to DOM events
+How to listen/bind to user events
+Copyright - Plagiarism
+You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
+You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
+You are not allowed to publish any content of this project.
+Any form of plagiarism is strictly forbidden and will result in removal from the program.
+Requirements
+General
+Allowed editors: vi, vim, emacs
+All your files will be interpreted on Chrome (version 57.0)
+All your files should end with a new line
+A README.md file, at the root of the folder of the project, is mandatory
+Your code should be semistandard compliant with the flag --global $: semistandard *.js --global $
+All your JavaScript must be in the folder scripts
+You must use JQuery version 3.x
+You are not allowed to use var
+HTML should not reload for each action: DOM manipulation, update values, fetch data…
+GitHub
+There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.
 
-## Environment
-This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3), jQuery (version 3.x), MySQL (version 5.7), Flask, and Chrome (version 57.0)
+More Info
+Import JQuery
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+Before starting the project…
+You will work on a codebase using Flasgger, you will need to install it locally first before starting the RestAPI:
 
-## Installation
-** UNDER CONSTRUCTION **
+$ sudo apt-get install -y python3-lxml
+$ sudo pip3 install flask_cors # if it was not installed yet
+$ sudo pip3 install flasgger
+If the RestAPI is not starting, please read the error message. Based on the(ses) error message(s), you will have to troubleshoot potential dependencies issues.
 
-## File Structure
-- **[api](api)** directory contains Flask web applications for a RESTful API
-- **[models](models)** directory contains all classes used for this project:
-- **[tests](tests)** directory contains all unit test cases for this project.
-- **[web_dynamic](web_dynamic)** directory contains all files necessary to start a dynamic Flask web application.
-- **[web_flask](web_flask)** directory contains all files necessary to start a Flask web application.
-- **[web_static](web_static)** directory contains all html, css and images used for the static website.
-- [0-setup_web_static.sh](0-setup_web_static.sh) - bash script that sets up web servers for the deployment of `web_static`
-- [1-pack_web_static.py](1-pack_web_static.py) - Fabric script that generates a .tgz archive from the contents of `web_static`, using the function `do_pack`
-- [2-do_deploy_web_static.py](2-do_deploy_web_static.py) - Fabric script (based on [1-pack_web_static.py](1-pack_web_static.py)) that distributes an archive to web servers, using the function `do_deploy`
-- [3-deploy_web_static.py](3-deploy_web_static.py) - Fabric script (based on [2-do_deploy_web_static.py](2-do_deploy_web_static.py)) that creates and distributes an archive to web servers, using the function `deploy`
-- [AUTHORS](AUTHORS) - list of Authors who have worked on this project.
-- [console.py](console.py) - the console is a command line used to interact with the storage engines. 
-- [setup_mysql_dev.sql](setup_mysql_dev.sql) - MySQL script to set-up the hbnb_dev_db database.
-- [setup_mysql_test.sql](setup_mysql_test.sql) - MySQL script to set-up the hbnb_test_db database.
+Here some solutions:
 
-## Examples of Use
-** UNDER CONSTRUCTION **
-### Console Example:
-```
-vagrantAirBnB_clone$./console.py
-(hbnb) help
+jsonschema exception
+$ sudo pip3 uninstall -y jsonschema 
+$ sudo pip3 install jsonschema==3.0.1
+No module named 'pathlib2'
+$ sudo pip3 install pathlib2
+Expose ports from your Vagrant
+In your Vagrantfile, add this line for each port forwarded
 
-Documented commands (type help <topic>):
-========================================
-EOF  all  create  destroy  help  quit  show  update
+# I expose the port 5001 of my vm to the port 5001 on my computer
+config.vm.network :forwarded_port, guest: 5001, host: 5001 
+if you need to expose other ports, same line but you will need to replace the “guest port” (inside your vagrant) and your “host port” (outside your vagrant, used from your browser for example)
 
-(hbnb) all MyModel
-** class doesn't exist **
-(hbnb) create BaseModel
-7da56403-cc45-4f1c-ad32-bfafeb2bb050
-(hbnb) all BaseModel
-[[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}]
-(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-[BaseModel] (7da56403-cc45-4f1c-ad32-bfafeb2bb050) {'updated_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772167), 'id': '7da56403-cc45-4f1c-ad32-bfafeb2bb050', 'created_at': datetime.datetime(2017, 9, 28, 9, 50, 46, 772123)}
-(hbnb) destroy BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-(hbnb) show BaseModel 7da56403-cc45-4f1c-ad32-bfafeb2bb050
-** no instance found **
-(hbnb) quit
-```
+It’s important in your project, to use the AirBnB API with the port 5001
 
-## Bugs
-No known bugs at this time.
 
-## Authors
 
-###### Version 4
-
-- Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-- Thomas Wang - [Github](https://github.com/thomaspwang) / [Twitter](https://twitter.com/thpwang)
-
-###### Version 3
-
-- Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-- Felicia Hsieh - [Github](https://github.com/feliciahsieh) / [Twitter](https://twitter.com/feliciahsiehsw)
-
-###### Version 2
-
-- Andrew Birnberg - [Github](https://github.com/birnbera) / [Twitter](https://twitter.com/birnbera)
-- Thomas Wang - [Github](https://github.com/thomaspwang) / [Twitter](https://twitter.com/thpwang)
-
-###### Version 1
-
-- Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
-- Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
-
-## License
-Public Domain. No copywrite protection.
